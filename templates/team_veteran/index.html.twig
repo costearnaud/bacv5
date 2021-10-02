@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TeamVeteran index{% endblock %}
+
+{% block body %}
+    <h1>TeamVeteran index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for team_veteran in team_veterans %}
+            <tr>
+                <td>{{ team_veteran.id }}</td>
+                <td>{{ team_veteran.name }}</td>
+                <td>{{ team_veteran.slug }}</td>
+                <td>
+                    <a href="{{ path('team_veteran_show', {'id': team_veteran.id}) }}">show</a>
+                    <a href="{{ path('team_veteran_edit', {'id': team_veteran.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('team_veteran_new') }}">Create new</a>
+{% endblock %}

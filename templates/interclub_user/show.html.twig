@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InterclubUser{% endblock %}
+
+{% block body %}
+    <h1>InterclubUser</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ interclub_user.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ interclub_user.type }}</td>
+            </tr>
+            <tr>
+                <th>Value</th>
+                <td>{{ interclub_user.value }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('interclub_user_index') }}">back to list</a>
+
+    <a href="{{ path('interclub_user_edit', {'id': interclub_user.id}) }}">edit</a>
+
+    {{ include('interclub_user/_delete_form.html.twig') }}
+{% endblock %}

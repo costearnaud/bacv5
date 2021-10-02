@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tournoi index{% endblock %}
+
+{% block body %}
+    <h1>Tournoi index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>DateDebut</th>
+                <th>DateFin</th>
+                <th>Lieu</th>
+                <th>LienInscription</th>
+                <th>Classements</th>
+                <th>Categories</th>
+                <th>Tableaux</th>
+                <th>DateInscription</th>
+                <th>LienConvocation</th>
+                <th>LienDescription</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tournoi in tournois %}
+            <tr>
+                <td>{{ tournoi.id }}</td>
+                <td>{{ tournoi.name }}</td>
+                <td>{{ tournoi.dateDebut ? tournoi.dateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ tournoi.dateFin ? tournoi.dateFin|date('Y-m-d') : '' }}</td>
+                <td>{{ tournoi.lieu }}</td>
+                <td>{{ tournoi.lienInscription }}</td>
+                <td>{{ tournoi.classements }}</td>
+                <td>{{ tournoi.categories }}</td>
+                <td>{{ tournoi.tableaux }}</td>
+                <td>{{ tournoi.dateInscription ? tournoi.dateInscription|date('Y-m-d') : '' }}</td>
+                <td>{{ tournoi.lienConvocation }}</td>
+                <td>{{ tournoi.lienDescription }}</td>
+                <td>{{ tournoi.slug }}</td>
+                <td>
+                    <a href="{{ path('tournoi_show', {'id': tournoi.id}) }}">show</a>
+                    <a href="{{ path('tournoi_edit', {'id': tournoi.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tournoi_new') }}">Create new</a>
+{% endblock %}

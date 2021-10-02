@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TournoiUser index{% endblock %}
+
+{% block body %}
+    <h1>TournoiUser index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Inscription</th>
+                <th>Participation</th>
+                <th>ResultatSimple</th>
+                <th>ResultatDouble</th>
+                <th>ResultatMixte</th>
+                <th>NbTableaux</th>
+                <th>InscriptionSimple</th>
+                <th>InscriptionDouble</th>
+                <th>InscriptionMixte</th>
+                <th>ParticipationSimple</th>
+                <th>ParticipationDouble</th>
+                <th>ParticipationMixte</th>
+                <th>InscriptionConfirmee</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tournoi_user in tournoi_users %}
+            <tr>
+                <td>{{ tournoi_user.id }}</td>
+                <td>{{ tournoi_user.inscription ? 'Yes' : 'No' }}</td>
+                <td>{{ tournoi_user.participation ? 'Yes' : 'No' }}</td>
+                <td>{{ tournoi_user.resultatSimple }}</td>
+                <td>{{ tournoi_user.resultatDouble }}</td>
+                <td>{{ tournoi_user.resultatMixte }}</td>
+                <td>{{ tournoi_user.nbTableaux }}</td>
+                <td>{{ tournoi_user.inscriptionSimple ? 'Yes' : 'No' }}</td>
+                <td>{{ tournoi_user.inscriptionDouble ? 'Yes' : 'No' }}</td>
+                <td>{{ tournoi_user.inscriptionMixte ? 'Yes' : 'No' }}</td>
+                <td>{{ tournoi_user.participationSimple ? 'Yes' : 'No' }}</td>
+                <td>{{ tournoi_user.participationDouble ? 'Yes' : 'No' }}</td>
+                <td>{{ tournoi_user.participationMixte ? 'Yes' : 'No' }}</td>
+                <td>{{ tournoi_user.inscriptionConfirmee ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('tournoi_user_show', {'id': tournoi_user.id}) }}">show</a>
+                    <a href="{{ path('tournoi_user_edit', {'id': tournoi_user.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="15">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tournoi_user_new') }}">Create new</a>
+{% endblock %}

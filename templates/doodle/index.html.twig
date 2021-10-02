@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Doodle index{% endblock %}
+
+{% block body %}
+    <h1>Doodle index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>MaxPersonnes</th>
+                <th>BeginDate</th>
+                <th>EndDate</th>
+                <th>Active</th>
+                <th>Type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for doodle in doodles %}
+            <tr>
+                <td>{{ doodle.id }}</td>
+                <td>{{ doodle.name }}</td>
+                <td>{{ doodle.description }}</td>
+                <td>{{ doodle.maxPersonnes }}</td>
+                <td>{{ doodle.beginDate ? doodle.beginDate|date('Y-m-d') : '' }}</td>
+                <td>{{ doodle.endDate ? doodle.endDate|date('Y-m-d') : '' }}</td>
+                <td>{{ doodle.active ? 'Yes' : 'No' }}</td>
+                <td>{{ doodle.type }}</td>
+                <td>
+                    <a href="{{ path('doodle_show', {'id': doodle.id}) }}">show</a>
+                    <a href="{{ path('doodle_edit', {'id': doodle.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('doodle_new') }}">Create new</a>
+{% endblock %}

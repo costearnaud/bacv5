@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit AgeCategory{% endblock %}
+
+{% block body %}
+    <h1>Edit AgeCategory</h1>
+
+    {{ include('age_category/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('age_category_index') }}">back to list</a>
+
+    {{ include('age_category/_delete_form.html.twig') }}
+{% endblock %}

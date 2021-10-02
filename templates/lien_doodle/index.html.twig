@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LienDoodle index{% endblock %}
+
+{% block body %}
+    <h1>LienDoodle index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Value</th>
+                <th>UpdatedDt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lien_doodle in lien_doodles %}
+            <tr>
+                <td>{{ lien_doodle.id }}</td>
+                <td>{{ lien_doodle.value }}</td>
+                <td>{{ lien_doodle.updatedDt ? lien_doodle.updatedDt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('lien_doodle_show', {'id': lien_doodle.id}) }}">show</a>
+                    <a href="{{ path('lien_doodle_edit', {'id': lien_doodle.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('lien_doodle_new') }}">Create new</a>
+{% endblock %}

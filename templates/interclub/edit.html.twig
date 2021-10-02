@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Interclub{% endblock %}
+
+{% block body %}
+    <h1>Edit Interclub</h1>
+
+    {{ include('interclub/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('interclub_index') }}">back to list</a>
+
+    {{ include('interclub/_delete_form.html.twig') }}
+{% endblock %}

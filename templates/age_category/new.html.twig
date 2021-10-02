@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New AgeCategory{% endblock %}
+
+{% block body %}
+    <h1>Create new AgeCategory</h1>
+
+    {{ include('age_category/_form.html.twig') }}
+
+    <a href="{{ path('age_category_index') }}">back to list</a>
+{% endblock %}

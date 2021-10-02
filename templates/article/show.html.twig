@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <h1>Article</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ article.picture }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ article.title }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ article.slug }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ article.content }}</td>
+            </tr>
+            <tr>
+                <th>PublicationDate</th>
+                <td>{{ article.publicationDate ? article.publicationDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>LastUpdateDate</th>
+                <td>{{ article.lastUpdateDate ? article.lastUpdateDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>IsPublished</th>
+                <td>{{ article.isPublished ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Excerpt</th>
+                <td>{{ article.excerpt }}</td>
+            </tr>
+            <tr>
+                <th>Pictures</th>
+                <td>{{ article.pictures ? article.pictures|join(', ') : '' }}</td>
+            </tr>
+            <tr>
+                <th>SrcImages</th>
+                <td>{{ article.srcImages ? article.srcImages|join(', ') : '' }}</td>
+            </tr>
+            <tr>
+                <th>ImageFilename</th>
+                <td>{{ article.imageFilename }}</td>
+            </tr>
+            <tr>
+                <th>Image2filename</th>
+                <td>{{ article.image2filename }}</td>
+            </tr>
+            <tr>
+                <th>Notif</th>
+                <td>{{ article.notif ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Recipients</th>
+                <td>{{ article.recipients }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_index') }}">back to list</a>
+
+    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+
+    {{ include('article/_delete_form.html.twig') }}
+{% endblock %}

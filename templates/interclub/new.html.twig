@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Interclub{% endblock %}
+
+{% block body %}
+    <h1>Create new Interclub</h1>
+
+    {{ include('interclub/_form.html.twig') }}
+
+    <a href="{{ path('interclub_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AgeCategory index{% endblock %}
+
+{% block body %}
+    <h1>AgeCategory index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for age_category in age_categories %}
+            <tr>
+                <td>{{ age_category.id }}</td>
+                <td>{{ age_category.name }}</td>
+                <td>
+                    <a href="{{ path('age_category_show', {'id': age_category.id}) }}">show</a>
+                    <a href="{{ path('age_category_edit', {'id': age_category.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('age_category_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TournoiUser{% endblock %}
+
+{% block body %}
+    <h1>Create new TournoiUser</h1>
+
+    {{ include('tournoi_user/_form.html.twig') }}
+
+    <a href="{{ path('tournoi_user_index') }}">back to list</a>
+{% endblock %}

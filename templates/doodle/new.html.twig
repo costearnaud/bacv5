@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Doodle{% endblock %}
+
+{% block body %}
+    <h1>Create new Doodle</h1>
+
+    {{ include('doodle/_form.html.twig') }}
+
+    <a href="{{ path('doodle_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TournoiUser{% endblock %}
+
+{% block body %}
+    <h1>TournoiUser</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tournoi_user.id }}</td>
+            </tr>
+            <tr>
+                <th>Inscription</th>
+                <td>{{ tournoi_user.inscription ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Participation</th>
+                <td>{{ tournoi_user.participation ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ResultatSimple</th>
+                <td>{{ tournoi_user.resultatSimple }}</td>
+            </tr>
+            <tr>
+                <th>ResultatDouble</th>
+                <td>{{ tournoi_user.resultatDouble }}</td>
+            </tr>
+            <tr>
+                <th>ResultatMixte</th>
+                <td>{{ tournoi_user.resultatMixte }}</td>
+            </tr>
+            <tr>
+                <th>NbTableaux</th>
+                <td>{{ tournoi_user.nbTableaux }}</td>
+            </tr>
+            <tr>
+                <th>InscriptionSimple</th>
+                <td>{{ tournoi_user.inscriptionSimple ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>InscriptionDouble</th>
+                <td>{{ tournoi_user.inscriptionDouble ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>InscriptionMixte</th>
+                <td>{{ tournoi_user.inscriptionMixte ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ParticipationSimple</th>
+                <td>{{ tournoi_user.participationSimple ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ParticipationDouble</th>
+                <td>{{ tournoi_user.participationDouble ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ParticipationMixte</th>
+                <td>{{ tournoi_user.participationMixte ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>InscriptionConfirmee</th>
+                <td>{{ tournoi_user.inscriptionConfirmee ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('tournoi_user_index') }}">back to list</a>
+
+    <a href="{{ path('tournoi_user_edit', {'id': tournoi_user.id}) }}">edit</a>
+
+    {{ include('tournoi_user/_delete_form.html.twig') }}
+{% endblock %}

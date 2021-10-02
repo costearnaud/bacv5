@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actualite index{% endblock %}
+
+{% block body %}
+    <h1>Actualite index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Content</th>
+                <th>StartDate</th>
+                <th>EndDate</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for actualite in actualites %}
+            <tr>
+                <td>{{ actualite.id }}</td>
+                <td>{{ actualite.name }}</td>
+                <td>{{ actualite.content }}</td>
+                <td>{{ actualite.startDate ? actualite.startDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ actualite.endDate ? actualite.endDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ actualite.slug }}</td>
+                <td>
+                    <a href="{{ path('actualite_show', {'id': actualite.id}) }}">show</a>
+                    <a href="{{ path('actualite_edit', {'id': actualite.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('actualite_new') }}">Create new</a>
+{% endblock %}

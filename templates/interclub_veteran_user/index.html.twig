@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InterclubVeteranUser index{% endblock %}
+
+{% block body %}
+    <h1>InterclubVeteranUser index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Value</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for interclub_veteran_user in interclub_veteran_users %}
+            <tr>
+                <td>{{ interclub_veteran_user.id }}</td>
+                <td>{{ interclub_veteran_user.type }}</td>
+                <td>{{ interclub_veteran_user.value }}</td>
+                <td>
+                    <a href="{{ path('interclub_veteran_user_show', {'id': interclub_veteran_user.id}) }}">show</a>
+                    <a href="{{ path('interclub_veteran_user_edit', {'id': interclub_veteran_user.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('interclub_veteran_user_new') }}">Create new</a>
+{% endblock %}

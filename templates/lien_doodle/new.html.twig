@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New LienDoodle{% endblock %}
+
+{% block body %}
+    <h1>Create new LienDoodle</h1>
+
+    {{ include('lien_doodle/_form.html.twig') }}
+
+    <a href="{{ path('lien_doodle_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Doodle{% endblock %}
+
+{% block body %}
+    <h1>Edit Doodle</h1>
+
+    {{ include('doodle/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('doodle_index') }}">back to list</a>
+
+    {{ include('doodle/_delete_form.html.twig') }}
+{% endblock %}
